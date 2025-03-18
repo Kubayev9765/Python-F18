@@ -1,7 +1,8 @@
 1. Sort a Dictionary by Value
-my_list=[9,7,3,4,1,2]
-my_list=sorted(my_list)
-print(my_list)
+my_list={1:9,2:7,3:9,4:31,5:1,6:2}
+for val in my_list.items():
+    (key,value)=val
+    print(value)
 
 2. Add a Key to a Dictionary
 
@@ -14,7 +15,7 @@ dic1 = {1: 10, 2: 20}
 dic2 = {3: 30, 4: 40}
 dic3 = {5: 50, 6: 60}
 
-my_dic=dic1.update(dic2)
+dic1.update(dic2)
 dic1.update(dic3)
 print(dic1)
 
@@ -40,6 +41,9 @@ my_set={320,32,23,24,1,3,5,100}
 print(my_set)
 
 2. Iterate Over a Set
+my_set={320,32,23,24,1,3,5,100}
+for n in my_set:
+    print(n)
 
 
 3. Add Member(s) to a Set
