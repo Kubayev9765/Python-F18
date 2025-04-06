@@ -1,5 +1,4 @@
 1.
-
 def Sum_Zero (a, b):
  
     try:
@@ -11,3 +10,17 @@ def Sum_Zero (a, b):
 a = float(input("1- sonni kiriting: "))
 b = float(input("2- sonni kiriting: "))
 Sum_Zero(a, b)
+
+2.
+def Butun_son():
+    Son = input("Son kiriting: ")
+    if not Son.strip().lstrip('-').isdigit():
+        raise ValueError("Kiritilgan son butun son emas.")
+    return int(Son)
+
+try:
+    number = Butun_son()
+    print(f"Butun son kiriting!: {number}")
+except ValueError as e:
+    print(f"Xatolik: {e}")
+
