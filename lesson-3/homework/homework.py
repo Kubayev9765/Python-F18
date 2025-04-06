@@ -73,6 +73,7 @@ my_List=list(my_tuple)
 print(my_List)
 
 14.
+my_tuple=(43, 56, 87, 93, 100, 76)
 eng_kattasi = max(my_tuple)
 eng_kichigi = min(my_tuple)
 print("Eng katta qiymat: ", eng_kattasi)
