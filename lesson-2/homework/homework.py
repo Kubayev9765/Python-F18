@@ -56,6 +56,8 @@ else:
     print("Siz elektron pochta kiritmadingiz. Iltimos elektron pochpangizni kiriting.")
 
 10.
+ import random
+import string
 def generate_password(length=12):    
     letters = string.ascii_letters     
     password = ''.join(random.choice(letters) for _ in range(length))    
