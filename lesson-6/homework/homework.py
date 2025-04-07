@@ -1,23 +1,9 @@
 1.
 listl = [1, 1, 2]
 list2 = [2, 3, 4]
-from collections import Counter
-
-def uncommon_elements(list1, list2):
-    count1 = Counter(list1)
-    count2 = Counter(list2)
-
-    result = []
-
-    for elem in count1:
-        if elem not in count2:
-            result.extend([elem] * count1[elem])
-
-    for elem in count2:
-        if elem not in count1:
-            result.extend([elem] * count2[elem])
-
-    return result
+dif Extend(list1, list2):
+    list=list1.extend(list2)
+    result list
 
 list1 = [1, 2, 3]
 list2 = [4, 5, 6]
@@ -25,23 +11,14 @@ list2 = [4, 5, 6]
 result = list1 + list2
 print(result)
 
-from collections import Counter
 
 list1 = [1, 1, 2, 3, 4, 2]
 list2 = [1, 3, 4, 5]
+dif Union(list1, list2):
+    list=list1.union(list2)
+    result list
 
 
-count1 = Counter(list1)
-count2 = Counter(list2)
-
-all_keys = set(count1.keys()).union(count2.keys())
-
-result = []
-for key in all_keys:
-    diff = abs(count1[key] - count2[key])
-    result.extend([key] * diff)
-
-print(result)
 
 
 2.
