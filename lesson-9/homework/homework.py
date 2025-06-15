@@ -41,86 +41,117 @@ dob = input("Enter the person's date of birth (YYYY-MM-DD): ")
     print(f"{person.name} from {person.country} is {person.get_age()} years old.")
 
 3.
-class Calculator:
-    def add(self, a, b):
-        return a + b
+class Kalkulyator:
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
 
-    def subtract(self, a, b):
-        return a - b
+    def qoshish(self):
+        return self.a + self.b
 
-    def multiply(self, a, b):
-        return a * b
+    def ayirish(self):
+        return self.a - self.b
 
-    def divide(self, a, b):
-        if b == 0:
-            return "Error: Division by zero is not allowed."
-        return a / b
+    def kopaytirish(self):
+        return self.a * self.b
 
-calc = Calculator()
-    
-print("Addition: 5 + 3 =", calc.add(5, 3))
-print("Subtraction: 10 - 4 =", calc.subtract(10, 4))
-print("Multiplication: 6 * 7 =", calc.multiply(6, 7))
-print("Division: 8 / 2 =", calc.divide(8, 2))
-print("Division by zero: 5 / 0 =", calc.divide(5, 0))
+    def bolish(self):
+        try:
+            return self.a / self.b
+        except ZeroDivisionError:
+            return "Xatolik: 0 ga bo'lish mumkin emas."
+
+# Foydalanuvchidan sonlar kiritishni so'raymiz
+try:
+    a = float(input("Birinchi sonni kiriting: "))
+    b = float(input("Ikkinchi sonni kiriting: "))
+
+    calc = Kalkulyator(a, b)
+
+    print("\nNatijalar:")
+    print(f"Qo‘shish: {calc.qoshish()}")
+    print(f"Ayirish: {calc.ayirish()}")
+    print(f"Ko‘paytirish: {calc.kopaytirish()}")
+    print(f"Bo‘lish: {calc.bolish()}")
+
+except ValueError:
+    print("Xatolik: Faqat raqam kiriting.")
+
 
 
 4.
 import math
 
+# Asosiy sinf
 class Shape:
     def area(self):
-        raise NotImplementedError("Subclasses must implement this method.")
-    
-    def perimeter(self):
-        raise NotImplementedError("Subclasses must implement this method.")
+        raise NotImplementedError("Area metodi aniqlanmagan.")
 
+    def perimeter(self):
+        raise NotImplementedError("Perimeter metodi aniqlanmagan.")
+
+    def __str__(self):
+        return "Bu biror shakl (Shape)."
+
+# Doira (Circle) sinfi
 class Circle(Shape):
     def __init__(self, radius):
         self.radius = radius
-    
+
     def area(self):
         return math.pi * self.radius ** 2
-    
+
     def perimeter(self):
         return 2 * math.pi * self.radius
 
-class Square(Shape):
-    def __init__(self, side):
-        self.side = side
-    
-    def area(self):
-        return self.side ** 2
-    
-    def perimeter(self):
-        return 4 * self.side
+    def __str__(self):
+        return f"Doira: radius = {self.radius}"
 
+# Uchburchak (Triangle) sinfi (tekis tomonli uchun)
 class Triangle(Shape):
-    def __init__(self, a, b, c):
+    def __init__(self, a, b, c):  # 3 ta tomon
         self.a = a
         self.b = b
         self.c = c
-    
+
     def perimeter(self):
         return self.a + self.b + self.c
-    
+
     def area(self):
-        s = self.perimeter() / 2
-        return math.sqrt(s * (s - self.a) * (s - self.b) * (s - self.c))
+        s = self.perimeter() / 2  # yarim perimetr
+        return math.sqrt(s * (s - self.a) * (s - self.b) * (s - self.c))  # Geron formulasi
 
+    def __str__(self):
+        return f"Uchburchak: tomonlar = {self.a}, {self.b}, {self.c}"
 
+# Kvadrat (Square) sinfi
+class Square(Shape):
+    def __init__(self, side):
+        self.side = side
 
-circle = Circle(5)
-print("Circle Area:", circle.area())
-print("Circle Perimeter:", circle.perimeter())
+    def area(self):
+        return self.side ** 2
 
-square = Square(4)
-print("\nSquare Area:", square.area())
-print("Square Perimeter:", square.perimeter())
+    def perimeter(self):
+        return 4 * self.side
 
-triangle = Triangle(3, 4, 5)
-print("\nTriangle Area:", triangle.area())
-print("Triangle Perimeter:", triangle.perimeter())
+    def __str__(self):
+        return f"Kvadrat: tomon = {self.side}"
+
+# --- TEST QISMI ---
+
+shakllar = [
+    Circle(5),
+    Triangle(3, 4, 5),
+    Square(6)
+]
+
+for shakl in shakllar:
+    print(shakl)
+    print(f"Yuza: {shakl.area():.2f}")
+    print(f"Perimetr: {shakl.perimeter():.2f}")
+    print("-" * 30)
+
 
 5.
 class Node:
